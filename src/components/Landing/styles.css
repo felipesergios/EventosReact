@@ -1,0 +1,10 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&display=swap');
+img#block{
+    width: 10rem;
+    height: 15rem;
+}
+h1,h2,h3,h4,h5,p{
+    font-family: 'Poppins', sans-serif;
+}
