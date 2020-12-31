@@ -1,6 +1,6 @@
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee ,faVideo ,faUnlock ,faLock ,faCalendar} from '@fortawesome/free-solid-svg-icons'
+import { faVideo ,faUnlock ,faLock ,faCalendar} from '@fortawesome/free-solid-svg-icons'
 import {Container,Row,Carousel,Media} from 'react-bootstrap'
 import logo from '../assets/imagem--fundo.png'
 import logo_cotic from '../assets/cotic-circulo-branco.png'
@@ -19,8 +19,8 @@ function Landing() {
       width="100"
     />
     <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      <h3>Bem vindo</h3>
+      <p>Agenda virtual</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -32,8 +32,8 @@ function Landing() {
     />
 
     <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <h3>Agende sua coferencia</h3>
+      <p>Entre em contato via email:conferencia@cotic.rn.gov.br</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -45,8 +45,8 @@ function Landing() {
     />
 
     <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      <h3>Confira nossa lista de eventos</h3>
+      <p>Lembre-se que conferencias privadas não podem ser acessadas ao publico</p>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
