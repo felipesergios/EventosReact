@@ -5,7 +5,7 @@ import {Container,Row,Carousel,Media} from 'react-bootstrap'
 import logo from '../assets/imagem--fundo.png'
 import logo_cotic from '../assets/cotic-circulo-branco.png'
 import './styles.css'
-import api from '../../services/api'
+
 function Landing() {
   return (
     <>
