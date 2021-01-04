@@ -1,5 +1,4 @@
 
-import Navbar from '../Navbar/index'
 import './styles.css'
 import {Container} from 'react-bootstrap'
 function About() {

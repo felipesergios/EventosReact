@@ -1,6 +1,7 @@
 import {Nav,Navbar} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import logo from '../assets/cotic-circulo-branco.png'
+import './styles.css'
 function Menu() {
   return (
     <>
@@ -13,11 +14,11 @@ function Menu() {
         className="d-inline-block align-top"
         alt="React Bootstrap logo"
       />
-      <Link to="/" className="text-white"> Eventos</Link>
+      <Link to="/" className="text-white link text-decoration-none"> Eventos</Link>
       
       </Navbar.Brand>
     <Nav className="mr-auto">
-      <Nav.Link><Link to="/sobre" className="text-white">Sobre</Link></Nav.Link>
+      <Nav.Link><Link to="/sobre" className="text-white link text-decoration-none">Sobre</Link></Nav.Link>
      
     </Nav>
   </Navbar>
