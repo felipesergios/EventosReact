@@ -14,8 +14,10 @@ para baixas as dependencias da aplicação
 e para rodar o servidor de desenvolvimento execute :
 ### `yarn start`
 
-Abra a aplicação pelo navegador 
+Abra a aplicação pelo navegador :
 [http://localhost:3000](http://localhost:3000)
+
+
 
 
 

@@ -1,12 +1,30 @@
+import React,{useEffect,useState} from 'react';
+
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faVideo ,faUnlock ,faLock ,faCalendar} from '@fortawesome/free-solid-svg-icons'
 import {Container,Row,Carousel,Media} from 'react-bootstrap'
 import logo from '../assets/imagem--fundo.png'
 import logo_cotic from '../assets/cotic-circulo-branco.png'
+import api from '../../services/api'
 import './styles.css'
 
 function Landing() {
+
+
+  const [events,setEvents]=useState([]);
+    useEffect(() => {
+        async function loadEvents(){
+        const response = await api.get('/schedule')
+        setEvents(response.data);      
+        }
+        loadEvents()
+    });
+
+
+
+
+
   return (
     <>
     
@@ -59,7 +77,13 @@ function Landing() {
      </Row>
   <Row className="justify-content-md-center">
   <ul className="list-unstyled top">
-  <Media as="li" >
+ 
+
+  
+
+  
+  {events.map(event=>(
+    <Media key={event._id} as="li"  className="top">
     <img
       width={64}
       height={64}
@@ -68,63 +92,25 @@ function Landing() {
       alt="Generic placeholder"
     />
     <Media.Body>
-      <h5><FontAwesomeIcon icon={faVideo}/> Sala de Aula Virtual - TCC I - 2020.3 - Direito/UNIFAP</h5>
-      <h5><FontAwesomeIcon icon={faUnlock}/> Conferência pública</h5>
+    <h5><FontAwesomeIcon icon={faVideo}/> {event.name}</h5>
+    {event.public === true ?  
+    <h5><FontAwesomeIcon icon={faUnlock}/> Conferência pública</h5> :  <h5><FontAwesomeIcon icon={faLock}/> Conferência privada</h5>
+    }
+     
       <p>
-        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-        ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at,
-        tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-        fringilla. Donec lacinia congue felis in faucibus.
-<br></br>
-<FontAwesomeIcon icon={faCalendar}/> Inicia em: 07 de Dezembro de 2020, 07:30
-      </p>
-
-    </Media.Body>
-  </Media>
-
-  <Media as="li" className="top">
-    <img
-      width={64}
-      height={64}
-      className="mr-3"
-      src={logo_cotic}
-      alt="Generic placeholder"
-    />
-    <Media.Body>
-      <h5><FontAwesomeIcon icon={faVideo}/> Oficina de construção de TR - 05</h5>
-      <h5><FontAwesomeIcon icon={faLock}/> Conferência privada</h5>
-      <p>
-        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+       {event.describe}
+       Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
         ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at,
         tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
         fringilla. Donec lacinia congue felis in faucibus.
         <br></br>
-        <FontAwesomeIcon icon={faCalendar}/> Inicia em: 07 de Dezembro de 2020, 07:30
+        <FontAwesomeIcon icon={faCalendar}/> Inicia em: {new Date(`${event.date}`).toLocaleDateString()} às  {new Date(`${event.date}`).toLocaleTimeString()}
       </p>
     </Media.Body>
   </Media>
+  ))}
 
-  <Media as="li"  className="top">
-    <img
-      width={64}
-      height={64}
-      className="mr-3"
-      src={logo_cotic}
-      alt="Generic placeholder"
-    />
-    <Media.Body>
-    <h5><FontAwesomeIcon icon={faVideo}/> Oficina de construção de TR - 05</h5>
-      <h5><FontAwesomeIcon icon={faLock}/> Conferência privada</h5>
-      <p>
-        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-        ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at,
-        tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-        fringilla. Donec lacinia congue felis in faucibus.
-        <br></br>
-        <FontAwesomeIcon icon={faCalendar}/> Inicia em: 07 de Dezembro de 2020, 07:30
-      </p>
-    </Media.Body>
-  </Media>
+
 </ul>
   </Row>
 </Container>

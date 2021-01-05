@@ -1,5 +1,5 @@
 import axios from 'axios'
 const api = axios.create({
-    baseURL:'http://myipnetwork:3333'
+    baseURL:'http://localhost:3000'
 })
 export default api;
